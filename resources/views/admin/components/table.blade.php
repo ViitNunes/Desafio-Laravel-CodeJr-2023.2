@@ -39,11 +39,11 @@
         </div>
     </div>
 @else
-    <div class="text-center" style="color: #949699">
+    <div class="text-center" style="color: purple">
         <i class="fas fa-exclamation-circle" style="font-size: 10em"></i>
         <p class="mb-4 h2">Nenhum item encontrado!</p>
         <a href="{{ $create ?? '#' }}">
-            <button type="button" class="btn btn-dark">
+            <button type="button" class="btn btn-info">
                 <b><i class="fas fa-plus-circle"></i> Adicionar novo item</b>
             </button>
         </a>
