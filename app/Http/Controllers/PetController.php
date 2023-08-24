@@ -13,7 +13,8 @@ class PetController extends Controller
      */
     public function index()
     {
-        //
+        $pets = Pet::all();
+        return view ('admin.pets.index', compact('pets'));
     }
 
     /**
@@ -21,7 +22,8 @@ class PetController extends Controller
      */
     public function create()
     {
-        //
+        $pet = new Pet();
+        return view ('admin.pets.create', compact('pet'));
     }
 
     /**
@@ -30,6 +32,10 @@ class PetController extends Controller
     public function store(Request $request)
     {
         //
+        $data = $request->all();
+        Pet::create($data);
+
+        return redirect()->route('pets.index')->with('success', true);
     }
 
     /**
@@ -37,7 +43,7 @@ class PetController extends Controller
      */
     public function show(Pet $pet)
     {
-        //
+        return view ('admin.pets.show', compact('pet'));
     }
 
     /**
@@ -45,7 +51,7 @@ class PetController extends Controller
      */
     public function edit(Pet $pet)
     {
-        //
+        return view ('admin.pets.edit', compact('pet'));
     }
 
     /**
@@ -53,7 +59,10 @@ class PetController extends Controller
      */
     public function update(Request $request, Pet $pet)
     {
-        //
+        $data = $request->all();
+        $pet->update($data);
+
+        return redirect()->route('pets.index')->with('success', true);
     }
 
     /**
@@ -61,6 +70,8 @@ class PetController extends Controller
      */
     public function destroy(Pet $pet)
     {
-        //
+        $pet->delete();
+
+        return redirect()->route('pets.index')->with('success', true);
     }
 }
