@@ -29,6 +29,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+//Users
+Route::get('/users', [UserController::class, 'index'])->name('users.index');
+Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
+Route::post('/users', [UserController::class, 'store'])->name('users.store');
+Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
+Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+
 // Pets
 Route::get('/pets', [PetController::class, 'index'])->name('pets.index');
 Route::get('/pets/create', [PetController::class, 'create'])->name('pets.create');
