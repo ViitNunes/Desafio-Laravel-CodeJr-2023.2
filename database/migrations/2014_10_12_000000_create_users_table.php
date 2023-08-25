@@ -15,8 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->date('birth_date'); //Data de nascimento do usuario
+            $table->string('phone'); //Número de telefone do usuario
+            $table->string('address'); //Endereço do usuario
+            $table->string('work_time'); //Periodo-turno de trabalho
+            $table->string('office'); //Cargo
+            $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
