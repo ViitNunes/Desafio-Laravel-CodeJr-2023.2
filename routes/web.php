@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PetController;
 use App\http\Controllers\UserController; 
+use App\http\Controllers\OwnerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,5 +48,15 @@ Route::get('/pets/{pet}', [PetController::class, 'show'])->name('pets.show');
 Route::post('/pets', [PetController::class, 'store'])->name('pets.store');
 Route::put('/pets/{pet}', [PetController::class, 'update'])->name('pets.update');
 Route::delete('/pets/{pet}', [PetController::class, 'destroy'])->name('pets.destroy');
+
+//Owners
+Route::get('/owners', [OwnerController::class, 'index'])->name('owners.index');
+Route::get('/owners/create', [OwnerController::class, 'create'])->name('owners.create');
+Route::get('/owners/{owner}/edit', [OwnerController::class, 'edit'])->name('owners.edit');
+Route::get('/owners/{owner}', [OwnerController::class, 'show'])->name('owners.show');
+Route::post('/owners', [OwnerController::class, 'store'])->name('owners.store');
+Route::put('/owners/{owner}', [OwnerController::class, 'update'])->name('owners.update');
+Route::delete('/owners/{owner}', [OwnerController::class, 'destroy'])->name('owners.destroy');
+
 
 require __DIR__.'/auth.php';
