@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('address'); //Endereço do usuario
             $table->string('work_time'); //Periodo-turno de trabalho
             $table->string('office'); //Cargo
-            $table->boolean('admin');
+            $table->boolean('admin')->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
