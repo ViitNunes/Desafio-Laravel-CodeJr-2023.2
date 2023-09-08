@@ -21,6 +21,7 @@ return new class extends Migration
             $table->date('birth_date'); //Data de nascimento do proprietário
             $table->string('address'); //Endereço do proprietário
             $table->string('phone'); //Número de telefone do proprietário
+            $table->timestamps();
         });
     }
 
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ownes');
+        Schema::dropIfExists('owners');
     }
 };
