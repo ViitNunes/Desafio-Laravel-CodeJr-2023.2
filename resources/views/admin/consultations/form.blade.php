@@ -28,14 +28,14 @@
     </div>
     <div class="form-group col-sm-12 col-md-4">
         <label for="start_time" class="required">Data e Hora de Início </label>
-        <input type="dateTime" name="start_time" id="start_time" class="form-control" required value="{{ old('start_time', $consultation->start_time) }}">
+        <input type="datetime-local" name="start_time" id="start_time" class="form-control" required value="{{ old('start_time', $consultation->start_time) }}">
     </div>
     <div class="form-group col-sm-12 col-md-4">
         <label for="end_time" class="required">Data e Hora de Término </label>
-        <input type="dateTime" name="end_time" id="end_time" autofocus class="form-control" required value="{{ old('end_time', $consultation->end_time) }}">
+        <input type="datetime-local" name="end_time" id="end_time" autofocus class="form-control" required value="{{ old('end_time', $consultation->end_time) }}">
     </div>
     <div class="form-group col-sm-12 col-md-4">
         <label for="cost" class="required">Custo</label>
-        <input type="float" name="cost" id="cost" autofocus class="form-control" required value="{{ old('cost', $consultation->cost) }}">
+        <input type="number" name="cost" id="cost" autofocus class="form-control" required value="{{ old('cost', $consultation->cost) }}">
     </div>
 </div>

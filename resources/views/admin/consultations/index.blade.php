@@ -12,7 +12,7 @@
         @slot('body')
             @foreach ($consultations as $consultation)
                 <tr>
-                    <td>{{ $consultation->pet_id }}</td>
+                    <td>{{ $consultation->pet->name ?? ""}}</td>
                     <td>{{ $consultation->start_time }}</td>
                     <td class="options d-flex justify-content-center gap-1">
                         <a href="{{ route('consultations.show', $consultation->id) }}" class="btn btn-dark">
