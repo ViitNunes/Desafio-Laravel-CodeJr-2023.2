@@ -58,5 +58,14 @@ Route::post('/owners', [OwnerController::class, 'store'])->name('owners.store');
 Route::put('/owners/{owner}', [OwnerController::class, 'update'])->name('owners.update');
 Route::delete('/owners/{owner}', [OwnerController::class, 'destroy'])->name('owners.destroy');
 
+//Consultations
+Route::get('/consultations', [ConsultationController::class, 'index'])->name('consultations.index');
+Route::get('/consultations/create', [ConsultationController::class, 'create'])->name('consultations.create');
+Route::get('/consultations/{consultation}/edit', [ConsultationController::class, 'edit'])->name('consultations.edit');
+Route::get('/consultations/{consultation}', [ConsultationController::class, 'show'])->name('consultations.show');
+Route::post('/consultations', [ConsultationController::class, 'store'])->name('consultations.store');
+Route::put('/consultations/{consultation}', [ConsultationController::class, 'update'])->name('consultations.update');
+Route::delete('/consultations/{consultation}', [ConsultationController::class, 'destroy'])->name('consultations.destroy');
+
 
 require __DIR__.'/auth.php';
