@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Owner;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OwnerController extends Controller
 {
@@ -32,8 +33,10 @@ class OwnerController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        Owner::create($data);
-
+        $userId = \Auth::user()->id;
+        $owner = Owner::create($data);
+        $owner->user_id = $userId;
+        $owner->save();
         return redirect()->route('owners.index')->with('success', true);
     }
 
