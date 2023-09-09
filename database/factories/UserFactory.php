@@ -25,7 +25,7 @@ class UserFactory extends Factory
             'work_time' => $this->faker->date(),
             'address' => $this->faker->address(),
             'phone' => $this->faker->phoneNumber(),
-            'office' => $this->faker->office(),
+            'office' => $this->faker->jobTitle(),
             'password' => '123456', // password
             'remember_token' => Str::random(10),
         ];
