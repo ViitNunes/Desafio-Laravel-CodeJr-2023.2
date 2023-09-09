@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PetController;
 use App\http\Controllers\UserController; 
 use App\http\Controllers\OwnerController;
+use App\http\Controllers\ConsultationController;
 
 /*
 |--------------------------------------------------------------------------
