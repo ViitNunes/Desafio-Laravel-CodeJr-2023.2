@@ -5,12 +5,12 @@
     </div>
     <div class="form-group col-sm-12 col-md-4">
         <label for="email" class="required">E-mail </label>
-        <input type="email" name="email" id="email" class="form-control" required value="{{ old('email', $owner->id) }}">
+        <input type="email" name="email" id="email" class="form-control" required value="{{ old('email', $owner->email) }}">
     </div>
 
     <div class="form-group col-sm-12 col-md-4">
         <label for="cpf" class="required">CPF </label>
-        <input type="text" name="cpf" id="cpf" autofocus class="form-control" required value="{{ old('cpf', $owner->name) }}">
+        <input type="text" name="cpf" id="cpf" autofocus class="form-control" required value="{{ old('cpf', $owner->cpf) }}">
     </div>
     <div class="form-group col-sm-12 col-md-4">
         <label for="birth_date" class="required">Data de Nascimento </label>
@@ -28,4 +28,5 @@
         <label for="profile_image">Foto de Perfil</label>
         <input type="file" name="profile_image" id="profile_image" class="form-control-file">
     </div>
+    <input type="hidden" name="user_id" id="user_id" class="form-control" value="1">
 </div>

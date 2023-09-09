@@ -17,10 +17,10 @@
     </div>
     <div class="form-group col-sm-12 col-md-4">
         <label for="birth_date" class="required">Data de Nascimento </label>
-        <input type="date" name="birth_date" id="birth_date" class="form-control" required value="{{ old('email', $pet->birth_date) }}">
+        <input type="date" name="birth_date" id="birth_date" class="form-control" required value="{{ old('birth_date', $pet->birth_date) }}">
     </div>
     <div class="form-group col-sm-12 col-md-4">
         <label for="treatments_done" class="required">Tratamentos Realizados </label>
-        <input type="text" name="treatments_done" id="treatments_done" class="form-control" required value="{{ old('email', $pet->treatments_done) }}">
+        <input type="text" name="treatments_done" id="C" class="form-control" required value="{{ old('treatments_done', $pet->treatments_done) }}">
     </div>
 </div>

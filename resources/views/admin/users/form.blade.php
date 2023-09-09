@@ -5,7 +5,7 @@
     </div>
     <div class="form-group col-sm-12 col-md-4">
         <label for="email" class="required">E-mail </label>
-        <input type="email" name="email" id="email" class="form-control" required value="{{ old('email', $user->id) }}">
+        <input type="email" name="email" id="email" class="form-control" required value="{{ old('email', $user->email) }}">
     </div>
     <div class="form-group col-sm-12 col-md-4">
         <label for="birth_date" class="required">Data de Nascimento </label>

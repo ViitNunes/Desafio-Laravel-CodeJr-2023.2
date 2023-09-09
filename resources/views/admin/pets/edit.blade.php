@@ -3,7 +3,7 @@
 @section('content')
 
     @component('admin.components.edit')
-        @slot('title', 'Editar pet')
+        @slot('title', 'Editar Pet')
         @slot('url', route('pets.update', $pet->id))
         @slot('form')
             @include('admin.pets.form')
