@@ -6,6 +6,9 @@ use App\Models\Consultation;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\User;
+use App\Models\Pet;
+
 class ConsultationController extends Controller
 {
     /**
@@ -13,7 +16,8 @@ class ConsultationController extends Controller
      */
     public function index()
     {
-        //
+        $consultations = Consultation::all();
+        return view ('admin.consultations.index', compact('consultations'));
     }
 
     /**
@@ -21,7 +25,10 @@ class ConsultationController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::all();
+        $pets = Pet::all();
+        $consultation = new Consultation();
+        return view ('admin.consultations.create', compact('consultation', 'users', 'pets'));
     }
 
     /**
@@ -29,7 +36,10 @@ class ConsultationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        Consultation::create($data);
+
+        return redirect()->route('consultations.index')->with('success', true);
     }
 
     /**
@@ -37,7 +47,9 @@ class ConsultationController extends Controller
      */
     public function show(Consultation $consultation)
     {
-        //
+        $users = User::all();
+        $pets = Pet::all();
+        return view ('admin.consultations.show', compact('consultation', 'users', 'pets'));
     }
 
     /**
@@ -45,7 +57,9 @@ class ConsultationController extends Controller
      */
     public function edit(Consultation $consultation)
     {
-        //
+        $users = User::all();
+        $pets = Pet::all();
+        return view ('admin.consultations.edit', compact('consultation', 'users', 'pets'));
     }
 
     /**
@@ -53,7 +67,10 @@ class ConsultationController extends Controller
      */
     public function update(Request $request, Consultation $consultation)
     {
-        //
+        $data = $request->all();
+        $consultation->update($data);
+
+        return redirect()->route('consultations.index')->with('success', true);
     }
 
     /**
@@ -61,6 +78,8 @@ class ConsultationController extends Controller
      */
     public function destroy(Consultation $consultation)
     {
-        //
+        $consultation->delete();
+
+        return redirect()->route('consultations.index')->with('success', true);
     }
 }
