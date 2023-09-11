@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    @component('admin.components.table')
+    @component('admin.components.tableUsers')
         @slot('create', route('users.create'))
         @slot('titulo', 'Funcionários')
         @slot('head')
@@ -21,12 +21,13 @@
 
                         <a href="{{ route('users.edit', $user->id) }}" class="btn btn-dark"><i class="fas fa-pen"></i></a>
     
-                        
-                        <form class="form-delete d-inline-block" action="{{ route('users.destroy', $user->id) }}" method="post">
-                            @csrf
-                            @method('delete')
-                            <button type="submit" class="btn btn-dark"><i class="fas fa-trash"></i></button>
-                        </form>
+                        @can('delete', $user)
+                            <form class="form-delete d-inline-block" action="{{ route('users.destroy', $user->id) }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-dark"><i class="fas fa-trash"></i></button>
+                            </form>
+                        @endcan
                     </td>
                 </tr>
             @endforeach

@@ -23,7 +23,7 @@ class AdminSeeder extends Seeder
             'work_time' => 'integral',
             'address' => 'Rua Alberto Pinto',
             'phone' => '(24) 9 8848-7765',
-            'office' => 'assessora',
+            'office' => 'Admin',
             'password' => Hash::make('123456') // password
      ]);
     }
