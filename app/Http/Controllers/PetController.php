@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pet;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Owner;
 
 class PetController extends Controller
 {
@@ -22,8 +23,9 @@ class PetController extends Controller
      */
     public function create()
     {
+        $owners = Owner::all();
         $pet = new Pet();
-        return view ('admin.pets.create', compact('pet'));
+        return view ('admin.pets.create', compact('pet', 'owners'));
     }
 
     /**
@@ -43,7 +45,8 @@ class PetController extends Controller
      */
     public function show(Pet $pet)
     {
-        return view ('admin.pets.show', compact('pet'));
+        $owners = Owner::all();
+        return view ('admin.pets.show', compact('pet', 'owners'));
     }
 
     /**
@@ -51,7 +54,8 @@ class PetController extends Controller
      */
     public function edit(Pet $pet)
     {
-        return view ('admin.pets.edit', compact('pet'));
+        $owners = Owner::all();
+        return view ('admin.pets.edit', compact('pet', 'owners'));
     }
 
     /**

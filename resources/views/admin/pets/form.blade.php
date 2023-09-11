@@ -12,8 +12,13 @@
         <input type="text" name="breed" id="breed" class="form-control" required value="{{ old('breed', $pet->breed) }}">
     </div>
     <div class="form-group col-sm-12 col-md-4">
-        <label for="owner_id" class="required">Dono </label>
-        <input type="int" name="owner_id" id="owner_id" class="form-control" required value="{{ old('owner_id', $pet->owner_id) }}">
+        <label for="owner_id">Responsável</label>
+        <select class="form-control form-select form-select-sm" name="owner_id" id="owner_id" value="{{old('owner_id', $pet->owner->id ?? null )}}">
+            <option value="" hidden>Selecione um Responsável</option>
+            @foreach ($owners as $owner)
+                <option value="{{ $owner->id }}"> {{ $owner->name }}</option>
+            @endforeach
+        </select>
     </div>
     <div class="form-group col-sm-12 col-md-4">
         <label for="birth_date" class="required">Data de Nascimento </label>

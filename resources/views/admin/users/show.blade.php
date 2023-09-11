@@ -2,7 +2,7 @@
 
 @section('content')
     @component('admin.components.show')
-        @slot('title', 'Detalhes do Usuário')
+        @slot('title', 'Detalhes do Funcionário')
         @slot('content')
             @include('admin.users.form')
         @endslot

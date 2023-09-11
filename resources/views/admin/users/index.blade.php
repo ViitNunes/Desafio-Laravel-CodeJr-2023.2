@@ -3,7 +3,7 @@
 @section('content')
     @component('admin.components.table')
         @slot('create', route('users.create'))
-        @slot('titulo', 'Usuários')
+        @slot('titulo', 'Funcionários')
         @slot('head')
             <th>Nome</th>
             <th>E-mail</th>
