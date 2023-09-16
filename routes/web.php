@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PetController;
 use App\http\Controllers\UserController; 
 use App\http\Controllers\OwnerController;
+use App\http\Controllers\EmailController;
 use App\http\Controllers\ConsultationController;
 
 /*
@@ -68,5 +69,8 @@ Route::post('/consultations', [ConsultationController::class, 'store'])->name('c
 Route::put('/consultations/{consultation}', [ConsultationController::class, 'update'])->name('consultations.update');
 Route::delete('/consultations/{consultation}', [ConsultationController::class, 'destroy'])->name('consultations.destroy');
 
+
+Route::get('/email', [EmailController::class, 'index'])->name('email.index');
+Route::post('/email', [EmailController::class, 'store'])->name('email.store');
 
 require __DIR__.'/auth.php';
