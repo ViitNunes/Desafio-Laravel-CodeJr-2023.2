@@ -7,6 +7,7 @@ use App\http\Controllers\UserController;
 use App\http\Controllers\OwnerController;
 use App\http\Controllers\EmailController;
 use App\http\Controllers\ConsultationController;
+use App\http\Controllers\PdfController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,5 +73,7 @@ Route::delete('/consultations/{consultation}', [ConsultationController::class, '
 
 Route::get('/email', [EmailController::class, 'index'])->name('email.index');
 Route::post('/email', [EmailController::class, 'store'])->name('email.store');
+
+Route::get('/pdf', [PdfController::class, 'geraPdf'])->name('pdf.gera');
 
 require __DIR__.'/auth.php';

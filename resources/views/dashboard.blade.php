@@ -9,8 +9,11 @@
         @can('create', $user)
         <a href="/email" class="text-gray-600 hover:text-gray-800">
                 Enviar Email
-        </a>
+        </a><br>
         @endcan
+        <a href="/pdf" class="text-gray-600 hover:text-gray-800">
+            Gerar PDF de consultas
+        </a>
     </x-slot>
 
     <div class="py-12">

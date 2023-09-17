@@ -21,7 +21,7 @@ class OwnerFactory extends Factory
 
         return [
             'user_id' => $user->id,
-            'name' => $this->faker->word(),
+            'name' => $this->faker->name(),
             'email' => $this->faker->email(),
             'cpf' => $this->faker->numerify('###########'),
             'birth_date' => $this->faker->date(),
