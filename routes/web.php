@@ -8,6 +8,7 @@ use App\http\Controllers\OwnerController;
 use App\http\Controllers\EmailController;
 use App\http\Controllers\ConsultationController;
 use App\http\Controllers\PdfController;
+use App\mail\EmailParaProprietario;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,5 +76,13 @@ Route::get('/email', [EmailController::class, 'index'])->name('email.index');
 Route::post('/email', [EmailController::class, 'store'])->name('email.store');
 
 Route::get('/pdf', [PdfController::class, 'geraPdf'])->name('pdf.gera');
+
+// Route::get('/mostra', function () {
+//     return new \App\mail\EmailParaProprietario(
+//         assunto:'assunto do email',
+//         mensagem: 'mensagem (corpo) email'
+//     );
+// });
+
 
 require __DIR__.'/auth.php';

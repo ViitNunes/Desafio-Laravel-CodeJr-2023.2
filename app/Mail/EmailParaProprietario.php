@@ -59,7 +59,6 @@ class EmailParaProprietario extends Mailable
     {
         return $this
             ->subject($this->assunto)
-            ->view('mail.via_Email'); // Substitua 'emails.para_proprietario' pelo nome da sua view de e-mail
+            ->markdown('email.mostraEmail');
     }
-
 }

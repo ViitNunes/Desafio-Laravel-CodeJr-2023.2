@@ -1,4 +1,5 @@
-<div class="row">
+<div class="row">     
+    @csrf
     <div class="form-group col-sm-12 col-md-4">
         <label for="name" class="required">Nome </label>
         <input type="text" name="name" id="name" autofocus class="form-control" required value="{{ old('name', $owner->name) }}">
@@ -24,9 +25,7 @@
         <label for="phone" class="required">Número de telefone </label>
         <input type="text" name="phone" id="phone" autofocus class="form-control" required value="{{ old('phone', $owner->phone) }}">
     </div>
-    <div class="form-group col-sm-12 col-md-4">
-        <label for="profile_image">Foto de Perfil</label>
-        <input type="file" name="profile_image" id="profile_image" class="form-control-file">
-    </div>
+   
     <input type="hidden" name="user_id" id="user_id" class="form-control" value="1">
+    
 </div>

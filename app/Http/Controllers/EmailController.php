@@ -11,26 +11,28 @@ use App\Mail\EmailParaProprietario;
 
 class EmailController extends Controller
 {
+
+    public $assunto;
+    public $mensagem;
+
     public function index()
     {
-        return view('mail.via_Email');
+        return view('email.via_Email');
     }
 
     public function store(Request $request)
     {
-        $request->validate([
-            'assunto' => 'required|string|max:255',
-            'mensagem' => 'required|string',
-        ]);
-
         $owners = Owner::all();
-        foreach ($owners as $indice => $owner) {
-            $multiplicador = $indice + 1;
-            $when = now()->addSecond($multiplicador * 20);
-            Mail::to($owner->email)->later($when, new \App\Mail\EmailParaProprietario($request->assunto, $request->mensagem));
+        $assunto = $request->assunto;
+        $mensagem = $request->mensagem;
+        $email = new EmailParaProprietario($assunto, $mensagem);
+        
+        foreach($owners as $index => $owner){
+            $multiplicador = $index + 1;
+            $when = now()->addSeconds($multiplicador * 5);
+            Mail::to($owner)->later($when, $email);
         }
 
-        return redirect()->route('email.store')->with('success', 'E-mails enviados com sucesso para todos os proprietários.');
+       return view('email.via_Email');
     }
 }
-

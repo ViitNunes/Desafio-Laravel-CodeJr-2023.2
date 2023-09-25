@@ -1,28 +1,29 @@
 <div class="row">
     <div class="form-group col-sm-12 col-md-4">
         <label for="user_id">Funcionario</label>
-        <select class="form-control form-select form-select-sm" name="user_id" id="user_id" value="{{old('user_id', $consultation->user->id ?? null )}}">
+        <select class="form-control form-select form-select-sm" name="user_id" id="user_id">
             <option value="" hidden>Selecione um Funcionário</option>
             @foreach ($users as $user)
-                <option value="{{ $user->id }}"> {{ $user->name }}</option>
+                <option value="{{ $user->id }}" @if (old('user_id', $consultation->user->id ?? null) == $user->id) selected @endif> {{ $user->name }}</option>
             @endforeach
         </select>
     </div>
     <div class="form-group col-sm-12 col-md-4">
         <label for="pet_id">Pet</label>
-        <select class="form-control form-select form-select-sm" name="pet_id" id="pet_id" value="{{old('pet_id', $consultation->pet->id ?? null )}}">
+        <select class="form-control form-select form-select-sm" name="pet_id" id="pet_id">
             <option value="" hidden>Selecione um Pet</option>
             @foreach ($pets as $pet)
-                <option value="{{ $pet->id }}"> {{ $pet->name }}</option>
+                <option value="{{ $pet->id }}" @if (old('pet_id', $consultation->pet->id ?? null) == $pet->id) selected @endif> {{ $pet->name }}</option>
             @endforeach
         </select>
+
     </div>
     <div class="form-group col-sm-12 col-md-4">
         <label for="pet_id">Tratamentos Realizados</label>
-        <select class="form-control form-select form-select-sm" name="pet_id" id="pet_id" value="{{old('pet_id', $consultation->pet->id ?? null )}}">
+        <select class="form-control form-select form-select-sm" name="pet_id" id="pet_id">
             <option value="" hidden>Selecione o Tratamento Realizado</option>
             @foreach ($pets as $pet)
-                <option value="{{ $pet->id }}"> {{ $pet->treatments_done }}</option>
+                <option value="{{ $pet->id }}" @if (old('pet_id', $consultation->pet->id ?? null) == $pet->id) selected @endif> {{ $pet->treatments_done }}</option>
             @endforeach
         </select>
     </div>

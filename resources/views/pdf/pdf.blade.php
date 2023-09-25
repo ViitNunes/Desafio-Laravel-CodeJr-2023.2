@@ -55,7 +55,7 @@
             <tbody class="table-group-divider">
                 <tr>
                 <td>{{ $consultation->pet->name }}</td>
-                <td>  $consultation->pet->owner->name  </td>
+                <td> {{$consultation->pet->owner->name}} </td>
                 <td>{{ $consultation->pet->treatments_done }}</td>
                 <td>{{ $consultation->start_time }}</td>
                 </tr>

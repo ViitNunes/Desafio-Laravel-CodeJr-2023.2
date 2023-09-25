@@ -15,17 +15,17 @@
                     <td>{{ $consultation->pet->name ?? ""}}</td>
                     <td>{{ $consultation->start_time }}</td>
                     <td class="options d-flex justify-content-center gap-1">
-                        <a href="{{ route('consultations.show', $consultation->id) }}" class="btn btn-dark">
-                            <i class="fas fa-search"></i>
+                        <a href="{{ route('consultations.show', $consultation->id) }}" class="btn btn-dark mr-1">
+                            <i class="fas fa-eye"></i>
                         </a>
 
-                        <a href="{{ route('consultations.edit', $consultation->id) }}" class="btn btn-dark"><i class="fas fa-pen"></i></a>
+                        <a href="{{ route('consultations.edit', $consultation->id) }}" class="btn btn-dark mr-1"><i class="fas fa-pen"></i></a>
     
                         
                         <form class="form-delete d-inline-block" action="{{ route('consultations.destroy', $consultation->id) }}" method="post">
                             @csrf
                             @method('delete')
-                            <button type="submit" class="btn btn-dark"><i class="fas fa-trash"></i></button>
+                            <button type="submit" class="btn btn-danger mr-1"><i class="fas fa-trash"></i></button>
                         </form>
                     </td>
                 </tr>

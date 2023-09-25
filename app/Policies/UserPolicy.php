@@ -36,7 +36,7 @@ class UserPolicy
      */
     public function update(User $user, User $model): bool
     {
-        //
+       return $user->isAdmin() || $user->id === $model->id;
     }
 
     /**
@@ -62,4 +62,10 @@ class UserPolicy
     {
         //
     }
+
+    public function edit(User $user): bool
+    {
+        return $user->office === 'admin';
+    }
+
 }

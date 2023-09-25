@@ -17,6 +17,8 @@ class Pet extends Model
         'treatments_done'
     ];
 
-
+    public function owner() {
+        return $this->belongsTo(Owner::class, 'owner_id');
+    }
     //protected $guarded = [];
 }

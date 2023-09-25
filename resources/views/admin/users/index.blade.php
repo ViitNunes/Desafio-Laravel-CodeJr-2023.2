@@ -15,17 +15,20 @@
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
                     <td class="options d-flex justify-content-center gap-1">
-                        <a href="{{ route('users.show', $user->id) }}" class="btn btn-dark">
-                            <i class="fas fa-search"></i>
+                        <a href="{{ route('users.show', $user->id) }}" class="btn btn-dark mr-1">
+                            <i class="fas fa-eye"></i>
                         </a>
 
-                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-dark"><i class="fas fa-pen"></i></a>
+
+                        @can('update', $user)
+                            <a href="{{ route('users.edit', $user->id) }}" class="btn btn-dark mr-1"><i class="fas fa-pen"></i></a>
+                        @endcan
     
                         @can('delete', $user)
                             <form class="form-delete d-inline-block" action="{{ route('users.destroy', $user->id) }}" method="post">
                                 @csrf
                                 @method('delete')
-                                <button type="submit" class="btn btn-dark"><i class="fas fa-trash"></i></button>
+                                <button type="submit" class="btn btn-danger mr-1"><i class="fas fa-trash"></i></button>
                             </form>
                         @endcan
                     </td>

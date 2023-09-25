@@ -6,6 +6,7 @@ use App\Models\Owner;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class OwnerController extends Controller
 {
@@ -21,9 +22,16 @@ class OwnerController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        $owner = new Owner();
+        $owner = new Owner();        
+        if ($request->hasFile('profile_image')) {
+            $file = $request->file('profile_image');
+            $path = $file->store('public/imagens'); 
+            $data['profile_image'] = basename($path);
+        } else {
+            $data['profile_image'] = null;
+        }
         return view ('admin.owners.create', compact('owner'));
     }
 
@@ -32,10 +40,23 @@ class OwnerController extends Controller
      */
     public function store(Request $request)
     {
+
         $data = $request->all();
+        //imagem upload
+        if ($request->hasFile('profile_image')) {
+            $file = $request->file('profile_image');
+            $file->store('public/storage/imagens');
+            $data['profile_image'] = $file->hashName();
+        }
+        else {
+            $data['profile_image'] = null;
+        }
+
         $userId = \Auth::user()->id;
         $owner = Owner::create($data);
         $owner->user_id = $userId;
+
+        
         $owner->save();
         return redirect()->route('owners.index')->with('success', true);
     }
@@ -62,6 +83,16 @@ class OwnerController extends Controller
     public function update(Request $request, Owner $owner)
     {
         $data = $request->all();
+
+        if ($request->hasFile('profile_image')) {
+            $file = $request->file('profile_image');
+            $file->store('public/storage/imagens');
+            $data['profile_image'] = $file->hashName();
+        }
+        else {
+            $data['profile_image'] = null;
+        }
+
         $owner->update($data);
 
         return redirect()->route('owners.index')->with('success', true);

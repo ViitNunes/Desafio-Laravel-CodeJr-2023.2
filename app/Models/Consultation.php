@@ -18,6 +18,10 @@ class Consultation extends Model
     ];
 
     public function pet() {
-    return $this->belongsTo(Pet::class, 'pet_id');
+        return $this->belongsTo(Pet::class, 'pet_id');
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class, 'user_id');
     }
 }
